@@ -1,0 +1,287 @@
+--[[
+
+--------------| ABOUT RANKS |--------------
+
++-------+---------------+---------------+-------------------------------------------------------------------------------------------------------------+
+|RANK	| DEFAULT NAME	| COMMANDS		| EXTRA DETAILS                                                                                               |
++-------+---------------+---------------+-------------------------------------------------------------------------------------------------------------+
+|7		| Owner			| All		    | Is automtically set. The Owner has full access to commands and features.									  |
++-------+---------------+---------------+-------------------------------------------------------------------------------------------------------------+
+|6 		| CoOwner		| 1,2,3,4,5,6	| Is manually set. The CoOwner has semi full access to commands and features that the owner lets them access. |
+|5 		| HeadAdmin		| 1,2,3,4,5		| Can use commands on everyone and use global commands.                                                       |
+|4		| Administrator	| 1,2,3,4		| Can use commands on all players.                                                                            |
+|3 		| Moderator		| 1,2,3			| Can only use commands on theirself.                                                                         |
+|2		| TempModerator | 1,2,3			| Can only use commands on theirself.                                                                         |
+|1		| VIP			| 1				| Can only use commands on theirself.                                                                         |
++-------+---------------+---------------+-------------------------------------------------------------------------------------------------------------+
+|0		| NonAdmin		| 0				| The default rank. Players are limited to basic features.                                                    |
++-------+---------------+---------------+-------------------------------------------------------------------------------------------------------------+
+
+
+
+--------------| SETUP RANKS |--------------																															 ]] return{
+
+-- RANK, RANK NAMES & SPECIFIC USERS
+Ranks = {
+	{7,	"Owner",			};
+	{6,	"CoOwner",			{"",0},	};
+	{5,	"HeadAdmin",		{"",0},	};
+	{4,	"Administrator",	{"",0},	};
+	{3,	"Moderator",		{"",0},	};
+	{2,	"TempModerator",	{"",0},	};
+	{1,	"VIP",				{"",0},	};
+	{0,	"NonAdmin",			};
+};
+
+
+
+-- GAMEPASSES
+Gamepasses = {
+	[0] = "VIP";
+};
+
+
+-- ASSETS
+Assets = {
+	[0] = "VIP";
+};
+
+
+-- GROUPS
+Groups = {
+	[0] = {
+		[254] = "Admin";
+		};
+};
+
+
+-- FRIENDS
+Friends = "VIP";
+
+
+-- VIP SERVER OWNER
+VipServerOwner = "VIP";
+
+
+-- FREE ADMIN
+FreeAdmin = "NonAdmin";
+
+
+
+
+
+
+
+
+--------------| BANLAND |--------------
+Banned = {"",0};
+
+
+
+
+
+
+
+
+--------------| SYSTEM SETTINGS |--------------
+Prefix				= ">";			-- The character you use before every command (e.g. ';jump me').
+SplitKey 			= "=";			-- The character inbetween command arguments (e.g. setting it to '/' would change ';jump me' to ';jump/me').
+BatchKey 			= "+";			-- The character inbetween batch commands (e.g. setting it to '|' would change ';jump me ;fire me ;smoke me' to ';jump me | ;fire me | ;smoke me'
+QualifierBatchKey 	= "~";			-- The character used to split up qualifiers (e.g. ;jump player1,player2,player3)
+
+Theme				= "Black";		-- The default UI theme.
+NoticeSoundId		= 2865227271;	-- The SoundId for notices.
+NoticeVolume		= 0.1;			-- The Volume for notices.
+NoticePitch			= 1;			-- The Pitch/PlaybackSpeed for notices.
+ErrorSoundId		= 2865228021;	-- The SoundId for error notifications.
+ErrorVolume			= 0.1;			-- The Volume for error notifications.
+ErrorPitch			= 1;			-- The Pitch/PlaybackSpeed for error notifications.
+AlertSoundId		= 3140355872;	-- The SoundId for alerts.
+AlertVolume			= 0.5;			-- The Volume for alerts.
+AlertPitch			= 1;			-- The Pitch/PlaybackSpeed for alerts.
+
+WelcomeBadgeId		= 0;			-- Award new players a badge, such as 'Welcome to the game!'. Set to 0 for no badge.
+
+CommandDebounce		= true;			-- Wait until the command effect is over to use again. Helps to limit abuse & lag. Set to 'false' to disable.
+SaveRank			= true;			-- Saves a player's rank in the server they received it. (e.g. ;rank plrName rank). Use ';permRank plrName rank' to permanently save a rank. Set to 'false' to disable.
+LoopCommands		= 3;			-- The minimum rank required to use LoopCommands.
+MusicList 			= {505757009,};	-- Songs which automatically appear in a user's radio. Type '!radio' to display the radio.
+
+ThemeColors = {						-- The colours players can set their HD Admin UI (in the 'Settings' menu). | Format: {ThemeName, ThemeColor3Value};
+	{"Red", 	Color3.fromRGB(150, 0, 0),		};
+	{"Orange", 	Color3.fromRGB(150, 75, 0),		};
+	{"Brown", 	Color3.fromRGB(120, 80, 30),	};
+	{"Yellow", 	Color3.fromRGB(130, 120, 0),	};
+	{"Green", 	Color3.fromRGB(0, 120, 0),		};
+	{"Blue", 	Color3.fromRGB(0, 100, 150),	};
+	{"Purple", 	Color3.fromRGB(100, 0, 150),	};
+	{"Pink",	Color3.fromRGB(150, 0, 100),	};
+	{"Black", 	Color3.fromRGB(60, 60, 60),		};
+};
+
+Colors = {							-- The colours for ChatColors and command arguments. | Format: {"ShortName", "FullName", Color3Value};
+	{"1", 		"White",		 			Color3.fromRGB(242, 243, 243)	};
+	{"2", 		"Grey",	 					Color3.fromRGB(161, 165, 162)	};
+	{"3", 		"LightYellow",				Color3.fromRGB(249, 233, 153)	};
+	{"5", 		"Brickyellow",				Color3.fromRGB(215, 197, 154)	};
+	{"6", 		"Mint",	 					Color3.fromRGB(194, 218, 184)	};
+	{"9", 		"LightReddishViolet",		Color3.fromRGB(232, 186, 200)	};
+	{"11", 		"PastelBlue",				Color3.fromRGB(128, 187, 219)	};
+	{"12", 		"LightOrangeBrown",			Color3.fromRGB(203, 132, 66)	};
+	{"18",		"Nougat",		 			Color3.fromRGB(204, 142, 105)	};
+	{"21",		"BrightRed",		 		Color3.fromRGB(196, 40, 28)		};
+	{"22",		"Med.ReddishViolet",		Color3.fromRGB(196, 112, 160)	};
+	{"23",		"BrightBlue",	 			Color3.fromRGB(13, 105, 172)	};
+	{"24",		"BrightYellow",	 			Color3.fromRGB(245, 205, 48)	};
+	{"25",		"EarthOrange",	 			Color3.fromRGB(98, 71, 50)		};
+	{"26",		"Black",	 				Color3.fromRGB(27, 42, 53)		};
+	{"27",		"DarkGrey",	 				Color3.fromRGB(109, 110, 108)	};
+	{"28",		"DarkGreen",	 			Color3.fromRGB(40, 127, 71)		};
+	{"29",		"MediumGreen",	 			Color3.fromRGB(161, 196, 140)	};
+	{"36",		"Lig.YellowichOrange",		Color3.fromRGB(243, 207, 155)	};
+	{"37",		"BrightGreen",				Color3.fromRGB(75, 151, 75)		};
+	{"38",		"DarkOrange",				Color3.fromRGB(160, 95, 53)		};
+	{"39",		"LightBluishViolet",		Color3.fromRGB(193, 202, 222)	};
+	{"40",		"Transparent",				Color3.fromRGB(236, 236, 236)	};
+	{"41",		"Tr.Red",					Color3.fromRGB(205, 84, 75)		};
+	{"42",		"Tr.Lgblue",				Color3.fromRGB(193, 223, 240)	};
+	{"43",		"Tr.Blue",					Color3.fromRGB(123, 182, 232)	};
+	{"44",		"Tr.Yellow",				Color3.fromRGB(247, 241, 141)	};
+	{"45",		"LightBlue",				Color3.fromRGB(180, 210, 228)	};
+	{"47",		"Tr.Flu.ReddishOrange",		Color3.fromRGB(217, 133, 108)	};
+	{"48",		"Tr.Green",					Color3.fromRGB(132, 182, 141)	};
+	{"49",		"Tr.Flu.Green",				Color3.fromRGB(248, 241, 132)	};
+	{"50",		"Phosph.White",				Color3.fromRGB(236, 232, 222)	};
+	{"100",		"LightRed",					Color3.fromRGB(238, 196, 182)	};
+	{"101",		"MediumRed",				Color3.fromRGB(218, 134, 122)	};
+	{"102",		"MediumBlue",				Color3.fromRGB(110, 153, 202)	};
+	{"103",		"LightGrey",				Color3.fromRGB(199, 193, 183)	};
+	{"104",		"BrightViolet",				Color3.fromRGB(107, 50, 124)	};
+	{"105",		"Br.YellowishOrange",		Color3.fromRGB(226, 155, 64)	};
+	{"106",		"BrightOrange",				Color3.fromRGB(218, 133, 65)	};
+	{"107",		"BrightBluishGreen",		Color3.fromRGB(0, 143, 156)		};
+	{"108",		"EarthYellow",				Color3.fromRGB(104, 92, 67)		};
+	{"110",		"BrightBluishViolet",		Color3.fromRGB(67, 84, 147)		};
+	{"111",		"Tr.Brown",					Color3.fromRGB(191, 183, 177)	};
+	{"112",		"MediumBluishViolet",		Color3.fromRGB(104, 116, 172)	};
+	{"113",		"Tr.Medi.ReddishViolet",	Color3.fromRGB(229, 173, 200)	};
+	{"115",		"Med.YellowishGreen",		Color3.fromRGB(199, 210, 60)	};
+	{"116",		"Med.BluishGreen",			Color3.fromRGB(85, 165, 175)	};
+	{"118",		"LightBluishGreen",			Color3.fromRGB(183, 215, 213)	};
+	{"119",		"Br.YellowishGreen",		Color3.fromRGB(164, 189, 71)	};
+	{"120",		"Lig.YellowishGreen",		Color3.fromRGB(217, 228, 167)	};
+	{"121",		"Med.YellowishOrange",		Color3.fromRGB(231, 172, 88)	};
+	{"123",		"Br.ReddishOrange",			Color3.fromRGB(211, 111, 76)	};
+	{"124",		"BrightReddishViolet",		Color3.fromRGB(146, 57, 120)	};
+	{"125",		"LightOrange",				Color3.fromRGB(234, 184, 146)	};
+	{"126",		"Tr.BrightBluishViolet",	Color3.fromRGB(165, 165, 203)	};
+	{"127",		"Gold",						Color3.fromRGB(220, 188, 129)	};
+	{"128",		"DarkNougat",				Color3.fromRGB(174, 122, 89)	};
+	{"131",		"Silver",					Color3.fromRGB(156, 163, 168)	};
+	{"133",		"NeonOrange",				Color3.fromRGB(213, 115, 61)	};
+	{"134",		"NeonGreen",				Color3.fromRGB(216, 221, 86)	};
+	{"135",		"SandBlue",					Color3.fromRGB(116, 134, 157)	};
+	{"136",		"SandViolet",				Color3.fromRGB(135, 124, 144)	};
+	{"137",		"MediumOrange",				Color3.fromRGB(224, 152, 100)	};
+	{"138",		"SandYellow",				Color3.fromRGB(149, 138, 115)	};
+	{"140",		"EarthBlue",				Color3.fromRGB(32, 58, 86)		};
+	{"141",		"EarthGreen",				Color3.fromRGB(39, 70, 45)		};
+	{"143",		"Tr.Flu.Blue",				Color3.fromRGB(207, 226, 247)	};
+};
+ChatColors = {						-- The colour a player's chat will appear depending on their rank. '["Owner"] = "Yellow";' makes the owner's chat yellow.
+	[7] 		= "Gold";
+	[6] 		= "Silver";
+};
+
+Cmdbar						= 5;			-- The minimum rank required to use the Cmdbar.
+Cmdbar2						= 3;			-- The minimum rank required to use the Cmdbar2.
+ViewBanland					= 3;			-- The minimum rank required to view the banland.
+OnlyShowUsableCommands		= true;		-- Only display commands equal to or below the user's rank on the Commands page.
+RankRequiredToViewPage		= {				-- || The pages on the main menu ||
+	["Commands"]		= 0;
+	["Admin"]			= 0;
+	["Settings"]		= 0;
+};
+RankRequiredToViewRank		= {				-- || The rank categories on the 'Ranks' subPage under Admin ||
+	["Owner"]			= 0;
+	["HeadAdmin"]		= 0;
+	["Admin"]			= 0;
+	["Mod"]				= 0;
+	["VIP"]				= 0;
+};
+RankRequiredToViewRankType	= {				-- || The collection of loader-rank-rewarders on the 'Ranks' subPage under Admin ||
+	["Owner"]			= 0;
+	["SpecificUsers"]	= 5;
+	["Gamepasses"] 		= 0;
+	["Assets"] 			= 0;
+	["Groups"] 			= 0;
+	["Friends"] 		= 0;
+	["FreeAdmin"] 		= 0;
+	["VipServerOwner"] 	= 0;
+};
+RankRequiredToViewIcon		= 1;
+
+WelcomeRankNotice			= true;			-- The 'You're a [rankName]' notice that appears when you join the game. Set to false to disable.
+WelcomeDonorNotice			= false;			-- The 'You're a Donor' notice that appears when you join the game. Set to false to disable.
+WarnIncorrectPrefix			= true;			-- Warn the user if using the wrong prefix | "Invalid prefix! Try using [correctPrefix][commandName] instead!"
+DisableAllNotices			= false;		-- Set to true to disable all HD Admin notices.
+
+ScaleLimit					= 1.5;			-- The maximum size players with a rank lower than 'IgnoreScaleLimit' can scale theirself. For example, players will be limited to ;size me 4 (if limit is 4) - any number above is blocked.
+IgnoreScaleLimit			= 5;			-- Any ranks equal or above this value will ignore 'ScaleLimit'
+CommandLimits				= {				-- Enables you to set limits for commands which have a number argument. Ranks equal to or higher than 'IgnoreLimit' will not be affected by Limit.
+	["fly"]	= {
+		Limit 				= 100;
+		IgnoreLimit 		= 4;
+	};
+	["fly2"]	= {
+		Limit 				= 100;
+		IgnoreLimit 		= 4;
+	};
+	["noclip"]	= {
+		Limit 				= 100;
+		IgnoreLimit 		= 4;
+	};
+	["noclip2"]	= {
+		Limit 				= 100;
+		IgnoreLimit 		= 4;
+	};
+	["speed"]	= {
+		Limit 				= 50;
+		IgnoreLimit 		= 4;
+	};
+	["jumpPower"]	= {
+		Limit 				= 50;
+		IgnoreLimit 		= 4;
+	};
+};
+
+VIPServerCommandBlacklist	= {"permRank", "permBan", "globalAnnouncement"};	-- Commands players are probihited from using in VIP Servers.
+GearBlacklist				= {67798397};	-- The IDs of gear items to block when using the ;gear command.
+IgnoreGearBlacklist			= 4;			-- The minimum rank required to ignore the gear blacklist.
+
+PlayerDataStoreVersion		= "V1.0";		-- Data about the player (i.e. permRanks, custom settings, etc). Changing the Version name will reset all PlayerData.
+SystemDataStoreVersion		= "V1.0";		-- Data about the game (i.e. the banland, universal message system, etc). Changing the Version name will reset all SystemData.
+
+CoreNotices					= {				-- Modify core notices. You can find a table of all CoreNotices under [MainModule > Client > SharedModules > CoreNotices]
+	--NoticeName = NoticeDetails;
+};
+
+
+
+
+--------------| MODIFY COMMANDS |--------------
+SetCommandRankByName = {
+	--["jump"] = "VIP";
+};	
+SetCommandRankByTag = {
+	--["abusive"] = "Admin";
+};
+
+
+
+
+
+
+
+
+};
